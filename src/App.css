@@ -1,0 +1,25 @@
+#root {
+  width: 100vw;
+  height: 100vh;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-between;
+  margin: 10% 10% 0;
+  height: 92%;
+}
+
+.page-title {
+  font-size: 20px;
+}
+
+.list-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  margin-top: 10px;
+}

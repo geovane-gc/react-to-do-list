@@ -1,0 +1,21 @@
+.item-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  background-color: #3a3a3d;
+  border-radius: 5px;
+  padding: 10px;
+
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+
+  margin-bottom: 15px;
+}
+
+.item-container:last-child {
+  margin-bottom: 0px;
+}
+
+.item-title {
+  margin-left: 5px;
+}
