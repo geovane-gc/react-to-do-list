@@ -31,29 +31,28 @@ function App() {
   };
 
   const deleteItem = (id: number) => {
+    if (items.length === 1) {
+      const emptyArray: Array<null> = [];
+      localStorage.setItem("tasks", JSON.stringify(emptyArray));
+    }
+
     setItems((items: Items) => items.filter((task: Item) => task.id !== id));
   };
 
-  const loadItems = () => {
-    const testItem = [
-      {
-        id: Math.random(),
-        title: "Item test",
-        isDone: true,
-      },
-      {
-        id: Math.random(),
-        title: "Item test 2",
-        isDone: false,
-      },
-    ];
+  useEffect(() => {
+    let localItems: string | null = localStorage.getItem("tasks");
 
-    setItems(testItem);
-  };
+    if (localItems) {
+      const newItemsArray: Items = JSON.parse(localItems);
+      setItems(newItemsArray);
+    }
+  }, []);
 
   useEffect(() => {
-    loadItems();
-  }, []);
+    if (items.length > 0) {
+      localStorage.setItem("tasks", JSON.stringify(items));
+    }
+  }, [items]);
 
   return (
     <div className="page-container">
@@ -62,12 +61,16 @@ function App() {
 
         <div className="list-container">
           {items?.map((item: Item) => (
-            <Item key={item.id} id={item.id} title={item.title} isDone={item.isDone} deleteItem={deleteItem} />
+            <Item
+              key={item.id}
+              id={item.id}
+              title={item.title}
+              isDone={item.isDone}
+              deleteItem={deleteItem}
+            />
           ))}
 
-          {items?.length === 0 && (
-            <span>You don't have any tasks yet!</span>
-          )}
+          {items?.length === 0 && <span>You don't have any tasks yet!</span>}
         </div>
       </div>
 
