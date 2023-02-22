@@ -4,6 +4,7 @@ import AddItem from "./components/AddItem";
 import Item from "./components/Item";
 
 type Item = {
+  id: number;
   title: string;
 };
 
@@ -18,6 +19,7 @@ function App() {
 
     if (title) {
       const newItem: Item = {
+        id: Math.random(),
         title: title,
       };
 
@@ -26,15 +28,22 @@ function App() {
     }
   };
 
+  const deleteItem = (id: number) => {
+    setItems((items: Items) => items.filter((task: Item) => task.id !== id));
+  };
+
   const loadItems = async () => {
     const testItem = [
       {
+        id: Math.random(),
         title: "Item test",
       },
       {
+        id: Math.random(),
         title: "Item test 2",
       },
       {
+        id: Math.random(),
         title: "Item test 3",
       },
     ];
@@ -53,7 +62,7 @@ function App() {
 
         <div className="list-container">
           {items?.map((item: Item) => (
-            <Item title={item.title} />
+            <Item id={item.id} title={item.title} deleteItem={deleteItem} />
           ))}
         </div>
       </div>

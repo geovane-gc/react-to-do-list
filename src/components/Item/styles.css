@@ -1,6 +1,6 @@
 .item-container {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
 
   background-color: #3a3a3d;
@@ -10,6 +10,11 @@
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 
   margin-bottom: 15px;
+}
+
+.item-divisory {
+  display: flex;
+  justify-content: space-between;
 }
 
 .item-container:last-child {
