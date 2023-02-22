@@ -46,11 +46,6 @@ function App() {
         title: "Item test 2",
         isDone: false,
       },
-      {
-        id: Math.random(),
-        title: "Item test 3",
-        isDone: false,
-      },
     ];
 
     setItems(testItem);
@@ -69,6 +64,10 @@ function App() {
           {items?.map((item: Item) => (
             <Item key={item.id} id={item.id} title={item.title} isDone={item.isDone} deleteItem={deleteItem} />
           ))}
+
+          {items?.length === 0 && (
+            <span>You don't have any tasks yet!</span>
+          )}
         </div>
       </div>
 
