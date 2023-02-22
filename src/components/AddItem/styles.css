@@ -30,6 +30,7 @@
 
 .new-item-container input::placeholder {
   text-align: center;
+  font-size: 14px;
 }
 
 .new-item-container button {
