@@ -14,7 +14,8 @@
 
 .new-item-container input {
   text-align: center;
-  width: 78%;
+  width: 100%;
+  margin-right: 10px;
   
   border-radius: 10px;
   border: none;
