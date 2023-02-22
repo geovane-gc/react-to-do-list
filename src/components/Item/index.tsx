@@ -26,7 +26,7 @@ const Item: React.FC<Props> = ({ id, title, isDone, deleteItem }) => {
         />
         <span className="item-title">{title}</span>
       </section>
-      <button onClick={() => deleteItem(id)}>Delete</button>
+      <button className="delete-button" onClick={() => deleteItem(id)}>Delete</button>
     </div>
   );
 };
