@@ -32,7 +32,7 @@ function App() {
     setItems((items: Items) => items.filter((task: Item) => task.id !== id));
   };
 
-  const loadItems = async () => {
+  const loadItems = () => {
     const testItem = [
       {
         id: Math.random(),
