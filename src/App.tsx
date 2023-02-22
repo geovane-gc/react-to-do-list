@@ -6,6 +6,7 @@ import Item from "./components/Item";
 type Item = {
   id: number;
   title: string;
+  isDone: boolean;
 };
 
 type Items = Array<Item>;
@@ -21,6 +22,7 @@ function App() {
       const newItem: Item = {
         id: Math.random(),
         title: title,
+        isDone: false,
       };
 
       setItems((items: Items) => [...items, newItem]);
@@ -37,14 +39,17 @@ function App() {
       {
         id: Math.random(),
         title: "Item test",
+        isDone: true,
       },
       {
         id: Math.random(),
         title: "Item test 2",
+        isDone: false,
       },
       {
         id: Math.random(),
         title: "Item test 3",
+        isDone: false,
       },
     ];
 
@@ -62,7 +67,7 @@ function App() {
 
         <div className="list-container">
           {items?.map((item: Item) => (
-            <Item id={item.id} title={item.title} deleteItem={deleteItem} />
+            <Item key={item.id} id={item.id} title={item.title} isDone={item.isDone} deleteItem={deleteItem} />
           ))}
         </div>
       </div>
