@@ -37,6 +37,11 @@
 
 .item-title {
   margin-left: 5px;
+
+  max-width: 190px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .delete-button {
